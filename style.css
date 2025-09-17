@@ -1,6 +1,7 @@
-@import url('https://fonts.googleapis.com/css2?family=Dosis:wght@200..800&family=Lavishly+Yours&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sacramento&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&family=Lexend+Giga:wght@100..900&family=Luxurious+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sacramento&family=Varela+Round&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-    --pink: #ff4da6;
+    --maroon: #ac2828;
     --bg-dark: #0f172a;
     --bg-light: #ffd9fa;
     --card: #0b1220;
@@ -8,7 +9,7 @@
     --muted: #94a3b8;
     --shadow: 0 2px 2px rgb(0,0,0.5);
     --bg: rgba(0, 0, 0, 0.4);
-    --glass: rgba(255,255,255,0.03);
+    --glass: rgba(255, 255, 255, 0.03);
     --gold: rgb(255, 199, 96);
 }
 
@@ -36,7 +37,7 @@ body {
     background-position: center;
     background-size: cover;
     z-index: -1;
-    filter: grayscale();
+    filter: sepia();
 }
 
 .hero {
@@ -51,12 +52,12 @@ body {
 }
 
 .hero h4 {
-    font-size: 1.4rem;
+    font-size: 2rem;
     text-shadow: var(--shadow);
 }
 
 .hero h1 {
-    color: var(--pink);
+    color: var(--maroon);
     font-family: "Sacramento", cursive;
     font-size: 10rem;
     text-shadow: var(--shadow);
@@ -66,9 +67,12 @@ body {
     font-size: 1.5rem;
     text-shadow: var(--shadow);
     font-weight: 500;
-    font-family: "Dosis", sans-serif;
+    font-family: "DM Serif Text", serif
 }
-
+.hero span h2 {
+    font-size: 3rem;
+    text-shadow: var(--shadow);
+}
 .countdown {
     display: flex;
     justify-content: center;
@@ -85,7 +89,7 @@ body {
 .unit {
     width: 80px;
     height: 80px;
-    background: var(--pink);
+    background: var(--maroon);
     color: #fff;
     border-radius: 50%;
     display: flex;
@@ -112,115 +116,115 @@ body {
     position: relative;
     top: 55px;
     box-shadow: var(--shadow);
-    color: var(--pink);
+    color: var(--maroon);
 }
 
 .hero .btn:hover {
-    background-color: var(--pink);
+    background-color: var(--maroon);
     color: #fff;
 }
-
-/* Navbar desktop */
+/* Navbar utama */
 .navbar {
     position: sticky;
     top: 0;
-    z-index: 10;
+    overflow: hidden;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background: var(--glass);
-    padding: 30px 60px;
+    /* background: var(--maroon); */
+    padding: 10px 120px;
+    color: #fff;
+    -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
 }
 
 .navbar .logo {
-    font-size: 2rem;
-    font-weight: 700;
-    color: var(--pink);
+    font-size: 3rem;
+    font-weight: bold;
     font-family: "Sacramento", cursive;
+    color: var(--maroon);
+    text-shadow: var(--shadow);
 }
 
 .navbar ul {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 25px;
     list-style: none;
-    margin: 0;
-    padding: 0;
+    display: flex;
+    gap: 20px;
 }
 
 .navbar ul li a {
+    color: var(--maroon);
+    /* text-shadow: var(--shadow); */
     text-decoration: none;
-    color: #5f5f5f;
-    font-weight: 600;
-    transition: 0.3s;
+    font-weight: bold;
     font-size: 1.2rem;
-    font-family: "Dosis", sans-serif;
+    font-family: "Lexend Giga", sans-serif;
+    margin-right: 12px;
 }
 
 .navbar ul li a:hover {
-    color: var(--pink);
+    color: white;
 }
 
-/* Hamburger button (default hidden) */
+/* Hamburger Button */
 .menu-toggle {
     display: none;
     flex-direction: column;
-    cursor: pointer;
     gap: 5px;
+    cursor: pointer;
+    width: 30px;
+    height: 22px;
+    justify-content: center;
 }
 .menu-toggle span {
-    width: 28px;
+    display: block;
+    width: 100%;
     height: 3px;
-    background: var(--pink);
-    border-radius: 4px;
+    background: #fff;
+    border-radius: 3px;
+    transition: 0.3s;
 }
 
-/* Sidebar mobile */
+/* Animasi jadi X */
+.menu-toggle.active span:nth-child(1) {
+    transform: rotate(45deg) translateY(8px);
+}
+.menu-toggle.active span:nth-child(2) {
+    opacity: 0;
+}
+.menu-toggle.active span:nth-child(3) {
+    transform: rotate(-45deg) translateY(-8px);
+}
+
+/* Sidebar Menu (untuk layar kecil) */
 .sidebar {
     position: fixed;
     top: 0;
-    right: -260px;
-    width: 260px;
+    right: -250px;
+    width: 250px;
     height: 100%;
-    background: var(--bg-dark);
-    color: var(--pink);
-    padding: 60px 20px;
-    transition: right 0.3s ease;
-    z-index: 20;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+    background: #ff4d6d;
+    padding-top: 60px;
+    transition: 0.3s;
+    z-index: 1000;
 }
 .sidebar.show {
     right: 0;
-}
-.sidebar .logo {
-    font-size: 26px;
-    font-weight: bold;
-    margin-bottom: 30px;
-    font-family: "Sacramento", cursive;
 }
 .sidebar ul {
     list-style: none;
     padding: 0;
     margin: 0;
-    width: 100%;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
     text-align: center;
 }
-.sidebar ul li {
-    margin: 18px 0;
-}
 .sidebar ul li a {
-    color: #ffffff;
-    font-weight: 700;
-    text-decoration: none;
+    color: #fff;
     font-size: 18px;
-    transition: color 0.3s;
-}
-.sidebar ul li a:hover {
-    color: var(--pink);
+    text-decoration: none;
+    font-family: "Bebas Neue", sans-serif;
 }
 
 /* Overlay */
@@ -230,17 +234,20 @@ body {
     left: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0, 0, 0, 0.3);
-    display: none;
-    z-index: 15;
+    background: rgba(0,0,0,0.5);
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+    z-index: 900;
 }
 .overlay.show {
-    display: block;
+    opacity: 1;
+    visibility: visible;
 }
 
 .home {
-    margin-top: -3.5rem;
-    background-image: url(assets/bg1.jpg);
+    margin-top: -5.5rem;
+    background-image: url(assets/img2.jpg);
     background-position: center;
     background-size: cover;
 }
@@ -248,15 +255,29 @@ body {
 .container {
     min-height: 120vh;
     justify-content: center;
+    font-family: "DM Serif Text", serif;
 }
 
 .row {
-    display: flex;
-    align-items: center;
 }
 
 .col {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     align-items: center;
+    padding-top: 9rem;
+}
+
+.col h2 {
+    font-size: 6rem;
+    font-family: "Sacramento", cursive;
+    color: var(--maroon);
+}
+
+.col h3 {
 }
 
 /* Media Query */
@@ -294,9 +315,8 @@ html {
 
 /* Nav Bar */
 .navbar {
-    font-size: 12%;
+    font-size: 70%;
     padding: 12px 20px;
-    transition: 3s;
 }
 .navbar ul{
     display:none;
@@ -321,7 +341,7 @@ html {
 
 .navbar {
     font-size: 12%;
-    /* padding: 10px 12px; */
+    padding: 10px 12px;
 }
 
 .unit {
@@ -337,4 +357,26 @@ html {
     font-size: 7px;
 }
 
+.menu-toggle{
+    display:flex;
+}
+
+.navbar ul {
+    position: absolute;
+    top: 60px;
+    right: 0;
+    background: #ff4d6d;
+    flex-direction: column;
+    width: 200px;
+    padding: 15px;
+    display: none;
+}
+
+.navbar ul.show {
+    display: flex;
+}
+
+.menu-toggle {
+    display: flex;
+}
 }
