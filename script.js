@@ -37,16 +37,27 @@
     const timer=setInterval(update,1000);
 
 // Menu Toggle
-    const toggle = document.getElementById('menu-toggle');
-    const sidebar = document.getElementById('sidebar');
-    const overlay = document.getElementById('overlay');
+    const toggle = document.querySelector('.menu-toggle');
+    const sidebar = document.querySelector('.sidebar');
+    const overlay = document.querySelector('.overlay');
+    const closeBtn = document.querySelector('.close-btn');
 
     toggle.addEventListener('click', () => {
         sidebar.classList.toggle('show');
         overlay.classList.toggle('show');
+        toggle.classList.toggle('active'); 
     });
 
     overlay.addEventListener('click', () => {
         sidebar.classList.remove('show');
         overlay.classList.remove('show');
+        toggle.classList.remove('active'); 
     });
+
+    closeBtn.addEventListener('click', () => {
+        sidebar.classList.remove('show');
+        overlay.classList.remove('show');
+        toggle.classList.remove('active');
+    });
+
+    

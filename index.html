@@ -3,13 +3,14 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://unpkg.com/boxicons@2.1.4/css/boxicons.min.css' rel='stylesheet'>
     <link rel="stylesheet" href="style.css">
     <title>Undangan Pernikahan</title>
 </head>
 <body>
     <section id="hero" class="hero">
         <main>
-            <h4>Undangan Pernikahan</h4>
+            <h4>The Wedding Of</h4>
             <h1>Ongky & Sofi</h1>
             <p>Kepada Bapak/Ibu/Saudara/i, </p>
             <span><h2>Nama Tamu</h2></span>
@@ -28,22 +29,23 @@
     <!-- Navbar -->
     <nav class="navbar">
         <div class="logo">Ongky & Sofi</div>
-        <ul>
+        <ul class="nav-links">
             <li><a href="#">HOME</a></li>
             <li><a href="#">STORY</a></li>
             <li><a href="#">GALLERY</a></li>
             <li><a href="#">TRANSFER</a></li>
         </ul>
         <div class="menu-toggle" id="menu-toggle">
-            <span></span>
-            <span></span>
-            <span></span>
+            <i class='bx bx-menu'></i> <!-- icon hamburger -->
         </div>
     </nav>
 
     <!-- Sidebar -->
     <div class="sidebar" id="sidebar">
-        <div class="logo">LOGO</div>
+        <div class="close-btn" id="close-btn">
+            <i class='bx bx-chevron-right' ></i>
+        </div>
+        <h3>Logo</h3>
         <ul>
         <li><a href="#">HOME</a></li>
         <li><a href="#">STORY</a></li>
@@ -55,17 +57,18 @@
     <!-- Overlay -->
     <div class="overlay" id="overlay"></div>
 
-<section id="home" class="home">
-    <div class="container">
-        <div class="row">
-            <div class="col">
-                <h2>Acara Pernikahan</h2>
-                <h3>Diselenggarakan pada 20 Maret 2026 di Bojonegoro, Jawa Timur</h3>
-                <p>Oleh karena itu, dengansegala hormat, kami bermaksud untuk mengundang Bapak/Ibu,Saudara/i, untuk hadir pada acara pernikahan kami.</p>
+    <section id="home" class="home">
+        <div class="container">
+            <div class="row">
+                <div class="col">
+                    <h2>Acara Pernikahan</h2>
+                    <h3>Diselenggarakan pada 20 Maret 2026 di Bojonegoro, Jawa Timur</h3>
+                    <p>Oleh karena itu, dengansegala hormat, kami bermaksud untuk mengundang Bapak/Ibu,Saudara/i, untuk hadir pada acara pernikahan kami.</p>
+                </div>
             </div>
         </div>
-    </div>
-</section>
+    </section>
+
     <script src="script.js"></script>
 </body>
 </html>
