@@ -36,28 +36,27 @@
     update();
     const timer=setInterval(update,1000);
 
-// Menu Toggle
-    const toggle = document.querySelector('.menu-toggle');
-    const sidebar = document.querySelector('.sidebar');
-    const overlay = document.querySelector('.overlay');
-    const closeBtn = document.querySelector('.close-btn');
 
-    toggle.addEventListener('click', () => {
-        sidebar.classList.toggle('show');
-        overlay.classList.toggle('show');
-        toggle.classList.toggle('active'); 
-    });
+// Ambil elemen
+const menuToggle = document.getElementById("menu-toggle");
+const sidebar = document.getElementById("sidebar");
+const closeBtn = document.getElementById("close-btn");
+const overlay = document.getElementById("overlay");
 
-    overlay.addEventListener('click', () => {
-        sidebar.classList.remove('show');
-        overlay.classList.remove('show');
-        toggle.classList.remove('active'); 
-    });
+// Klik hamburger → buka sidebar
+menuToggle.addEventListener("click", () => {
+    sidebar.classList.add("show");
+    overlay.classList.add("show");
+});
 
-    closeBtn.addEventListener('click', () => {
-        sidebar.classList.remove('show');
-        overlay.classList.remove('show');
-        toggle.classList.remove('active');
-    });
+// Klik tombol close → tutup sidebar
+closeBtn.addEventListener("click", () => {
+    sidebar.classList.remove("show");
+    overlay.classList.remove("show");
+});
 
-    
+// Klik overlay → tutup sidebar
+overlay.addEventListener("click", () => {
+    sidebar.classList.remove("show");
+    overlay.classList.remove("show");
+});
