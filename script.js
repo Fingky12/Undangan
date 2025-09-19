@@ -43,20 +43,39 @@ const sidebar = document.getElementById("sidebar");
 const closeBtn = document.getElementById("close-btn");
 const overlay = document.getElementById("overlay");
 
-// Klik hamburger → buka sidebar
-menuToggle.addEventListener("click", () => {
-    sidebar.classList.add("show");
-    overlay.classList.add("show");
-});
+    // Klik hamburger → buka sidebar
+    menuToggle.addEventListener("click", () => {
+        sidebar.classList.add("show");
+        overlay.classList.add("show");
+    });
 
-// Klik tombol close → tutup sidebar
-closeBtn.addEventListener("click", () => {
-    sidebar.classList.remove("show");
-    overlay.classList.remove("show");
-});
+    // Klik tombol close → tutup sidebar
+    closeBtn.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+    });
 
-// Klik overlay → tutup sidebar
-overlay.addEventListener("click", () => {
-    sidebar.classList.remove("show");
-    overlay.classList.remove("show");
-});
+    // Klik overlay → tutup sidebar
+    overlay.addEventListener("click", () => {
+        sidebar.classList.remove("show");
+        overlay.classList.remove("show");
+    });
+
+
+// Tambah class .is-stuck saat window di-scroll ke bawah
+const nav = document.querySelector('.navbar');
+const sentinel = document.createElement('div');
+sentinel.style.height = '1px';
+document.body.insertBefore(sentinel, document.querySelector('main'));
+
+    const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (!entry.isIntersecting) {
+        nav.classList.add('is-stuck');
+        } else {
+        nav.classList.remove('is-stuck');
+        }
+    });
+    }, { threshold: 0 });
+
+observer.observe(sentinel);

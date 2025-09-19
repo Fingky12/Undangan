@@ -97,6 +97,7 @@ body {
     align-items: center;
     justify-content: space-between;
     gap: 1rem;
+    background: transparent;
     padding: 0.75rem 4rem;
     position: sticky;
     top: 0;
@@ -223,7 +224,7 @@ body {
 }
 
 .home {
-    min-height: 100vh;
+    min-height: 150vh;
 }
 
 /* Responsive */
