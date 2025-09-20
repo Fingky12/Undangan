@@ -24,12 +24,12 @@ body {
 }
 
 .container {
-    min-width: 600px;         /* batas lebar */
+    min-width: 600px;  
+    margin: auto;       /* batas lebar */
 }
 
 .hal-1,
 .hal-2 {
-    width: 100%;
     min-height: 100vh; 
     padding: 20% 20%;
     display: flex;
