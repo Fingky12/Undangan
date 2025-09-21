@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&family=Imperial+Script&family=Lexend+Deca:wght@100..900&family=Lexend+Giga:wght@100..900&family=Luxurious+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sacramento&family=Tangerine:wght@400;700&family=Varela+Round&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 :root {
-    --maroon: rgb(160, 0, 0);
+    --maroon: rgb(185, 16, 16);
     --w: rgb(255, 255, 255);
     --b: #000;
 }
@@ -28,10 +28,25 @@ body {
 }
 
 body.lock-scroll {
-  overflow: hidden; /* kunci scroll */
+    overflow: hidden; /* kunci scroll */
+    height: 100vh;
+}
+
+/* isi undangan default ketutup */
+#isi-undangan {
+    display: none;
+    opacity: 0;
+    transition: opacity 0.8s ease-in-out;
+}
+
+/* kalau aktif, tampil */
+#isi-undangan.active {
+    display: block;
+    opacity: 1;
 }
 
 .container1 {
+    position: relative;
     height: 100vh;
     max-width: 600px;
     width: 600px;              /* apapun yang keluar dari container langsung ketutup */
@@ -39,14 +54,14 @@ body.lock-scroll {
     box-shadow:     
     -5px 0 15px rgba(0,0,0,0.2),  /* kiri */
     5px 0 15px rgba(0,0,0,0.2); 
-    overflow: hidden;  /* opsional, biar elegan */
+    overflow-x: hidden;  /* opsional, biar elegan */
     background: #666666; 
 }
 
 .container2 {
-    height: max-content;
+    position: relative;
     max-width: 600px;
-    width: 600px;
+    width: 100%;
     margin: auto;
     background-color: aqua;
 }
@@ -78,6 +93,7 @@ body.lock-scroll {
     color: var(--maroon);
     font-family: "Tangerine", cursive;
     font-size: 5rem;
+    font-weight: bold;
 }
 
 .guest {
@@ -92,17 +108,41 @@ body.lock-scroll {
 
 .guest h2 {
     padding-top: 1rem;
-    font-size: 2.2rem;
+    font-size: 2.3rem;
 }
 
-.link1 a {
+.btn {
     font-size: 0.80rem;
-    font-weight: 400;
     padding: 0.35rem 1rem;
-    background: var(--w);
+    color: var(--w);
+    background: var(--maroon);
+    align-items: center;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
     text-decoration: none;
     border-radius: 1rem;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.534);
+    font-family: "Lexend Deca", sans-serif;
+}
+
+.btn-animasi {
+    transition: transform 0.2s ease, box-shadow 0.3s ease;
+    animation: pulse 1s infinite; /* animasi otomatis */
+}
+
+.btn-animasi:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px var(--maroon);
+    color: var(--maroon);
+    background: var(--w);
+}
+
+/* Animasi "denyut" */
+@keyframes pulse {
+    0%   { transform: scale(1);}
+    50%  { transform: scale(1.08);}
+    100% { transform: scale(1);}
 }
 
 .contnav {
@@ -130,65 +170,93 @@ body.lock-scroll {
 .logo-nav h1 {
     color: var(--maroon);
     font-family: "Tangerine", cursive;
+    font-weight: bold;
+    text-align: center;
 }
 
 .logo-nav span {
     margin-left: auto;
+    cursor: pointer;
 }
 
-.logo-nav span i {
+.logo-nav span .bx-menu {
     justify-content: center;
     align-items: center;
     font-size: 2rem;
+    color: #383838;
 }
 
 .logo-nav span i:active {
     color: var(--maroon);
 }
 
-.considebar {
-    max-width: 576px;
-    width: 100%;
-    overflow: hidden;
-}
-
 .sidebar {
     position: absolute;
     top: 0;          /* sejajar atas */
     right: 0;        /* kalau muncul dari kanan */
+    max-width: 100%;
     width: 250px;
     height: 100%;
-    background: #fff5f5;
-    padding: 60px 20px 20px; /* 60px biar gak nutupin nav */
+    background-color: rgb(0,0,0,0.1);
+    padding: 60px 20px 20px;     /* 60px biar gak nutupin nav */
     transform: translateX(100%); /* sembunyi */
     transition: 0.3s;
+    z-index: 10;                 /* biar di atas konten lain */
 }
 
 .sidebar.active {
     transform: translateX(0); /* tampil */
 }
 
-.sidebar .nav-link {
+.cont-sidebar {
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+    padding: 0;
+}
+
+.cont-sidebar span {
+    position: relative;
+    top: -45px;
+    left: -9px;
+}
+
+.cont-sidebar span .bx-x {
+    font-size: 2rem;
+}
+
+.nav-link {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    top: -45px;
+    gap: 2rem;
+    width: 100%;
     text-align: center;
     list-style: none;
     padding: 2rem 4rem;
 }
 
 .nav-link li a {
-
+    height: 100%;
+    width: 100%;
     text-decoration: none;
-    font-size: 2rem;
+    font-size: 20px;
 }
 
 .nav-link li a:hover {
     background: #666;
 }
 
-.sec-1 {
+.container-isi {
+    position: relative;
     display: block;
-    height: 100vh;
+    overflow: hidden;
 }
 
+.sec-1 {
+    height: 100vh;
+}
 
 .sec-2 {
     height: 100vh;
