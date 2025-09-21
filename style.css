@@ -5,6 +5,9 @@
     --b: #000;
 }
 
+img {
+    color: white;
+}
 
 * {
     margin: 0;
@@ -16,6 +19,7 @@ body {
     margin: 0;
     padding: 0;
     display: flex;
+    flex-direction: column;
     justify-content: center;   /* biar konten di tengah */
     background: var(--w);
     color: var(--b);    /* bisa diganti warna bebas */
@@ -23,38 +27,39 @@ body {
     font-family: "Lexend Deca", sans-serif;        /* cegah scroll horizontal */
 }
 
-.container {
+body.lock-scroll {
+  overflow: hidden; /* kunci scroll */
+}
+
+.container1 {
+    height: 100vh;
     max-width: 600px;
-    width: 100%;
+    width: 600px;              /* apapun yang keluar dari container langsung ketutup */
     margin: auto;                   /* batas lebar */
     box-shadow:     
     -5px 0 15px rgba(0,0,0,0.2),  /* kiri */
-    5px 0 15px rgba(0,0,0,0.2);   /* opsional, biar elegan */
+    5px 0 15px rgba(0,0,0,0.2); 
+    overflow: hidden;  /* opsional, biar elegan */
+    background: #666666; 
 }
 
-.un1,
-.un2 {
-    margin: 0 auto;         /* biar center */
-    position: relative;     /* supaya sidebar absolute bisa ikut container */
-    background: #666;
-    min-height: 100vh;
+.container2 {
+    height: max-content;
+    max-width: 600px;
+    width: 600px;
+    margin: auto;
+    background-color: aqua;
 }
 
-.hal-1-un1,
-.hal-1-un2 {
-    min-height: 100vh; 
-    padding: 20% 20%;
+.hal-1-un1 {
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    justify-content: flex-end;
+    text-align: center;
     align-items: center;
-    background: #666666;          /* kasih background biar jelas */
-    overflow: hidden;                /* apapun yang keluar dari container langsung ketutup */
-}
+    padding: 20% 0;
 
-.hal-2-un2 {
-    min-height: 100vh; 
-    padding: 20% 20%;
 }
 
 .logo-hal1 {
@@ -101,26 +106,50 @@ body {
 }
 
 .contnav {
-    max-height: 60px;
+    height: 40px;
     position: sticky;
     top: 0;
     display: flex;
     align-items: center;
-    background-color: rgb(0,0,0,0.5);
+    background-color: rgb(0,0,0,0.1);
     -webkit-backdrop-filter: blur(3px);
     backdrop-filter: blur(3px);
 }
 
-.logo-icon {
+.logo-nav {
     width: 100%;
     margin-right: auto;
     padding: 0 6%;
     color: var(--w);
     display: flex;
     justify-content: flex-start;
-    > img {
-        margin-left: auto;
-    }
+    text-align: center;
+    align-items: center;
+}
+
+.logo-nav h1 {
+    color: var(--maroon);
+    font-family: "Tangerine", cursive;
+}
+
+.logo-nav span {
+    margin-left: auto;
+}
+
+.logo-nav span i {
+    justify-content: center;
+    align-items: center;
+    font-size: 2rem;
+}
+
+.logo-nav span i:active {
+    color: var(--maroon);
+}
+
+.considebar {
+    max-width: 576px;
+    width: 100%;
+    overflow: hidden;
 }
 
 .sidebar {
@@ -153,4 +182,14 @@ body {
 
 .nav-link li a:hover {
     background: #666;
+}
+
+.sec-1 {
+    display: block;
+    height: 100vh;
+}
+
+
+.sec-2 {
+    height: 100vh;
 }
