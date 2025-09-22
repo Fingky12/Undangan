@@ -1,263 +1,150 @@
 @import url('https://fonts.googleapis.com/css2?family=Ballet:opsz@16..72&family=Bebas+Neue&family=DM+Serif+Display:ital@0;1&family=DM+Serif+Text:ital@0;1&family=Dancing+Script:wght@400..700&family=Dosis:wght@200..800&family=Imperial+Script&family=Lexend+Deca:wght@100..900&family=Lexend+Giga:wght@100..900&family=Luxurious+Script&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Sacramento&family=Tangerine:wght@400;700&family=Varela+Round&family=Work+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+
 :root {
-    --maroon: rgb(185, 16, 16);
+    --m: rgb(161, 0, 0);
+    --g: rgb(255, 187, 0);
     --w: rgb(255, 255, 255);
-    --b: #000;
+    --s: 0px 4px rgba(0, 0, 0, 0.30);
+    --b: rgb(82, 82, 82);
 }
 
-img {
-    color: white;
-}
 
-* {
+*{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
 }
 
-body {
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;   /* biar konten di tengah */
-    background: var(--w);
-    color: var(--b);    /* bisa diganti warna bebas */
-    overflow-x: hidden;
-    font-family: "Lexend Deca", sans-serif;        /* cegah scroll horizontal */
+Body {
+    font-family: "Poppins", sans-serif;
 }
 
-body.lock-scroll {
-    overflow: hidden; /* kunci scroll */
-    height: 100vh;
-}
-
-/* isi undangan default ketutup */
-#isi-undangan {
-    display: none;
-    opacity: 0;
-    transition: opacity 0.8s ease-in-out;
-}
-
-/* kalau aktif, tampil */
-#isi-undangan.active {
-    display: block;
-    opacity: 1;
-}
-
-.container1 {
+.container {
     position: relative;
-    height: 100vh;
-    max-width: 600px;
-    width: 600px;              /* apapun yang keluar dari container langsung ketutup */
-    margin: auto;                   /* batas lebar */
-    box-shadow:     
-    -5px 0 15px rgba(0,0,0,0.2),  /* kiri */
-    5px 0 15px rgba(0,0,0,0.2); 
-    overflow-x: hidden;  /* opsional, biar elegan */
-    background: #666666; 
-}
-
-.container2 {
-    position: relative;
-    max-width: 600px;
-    width: 100%;
-    margin: auto;
-    background-color: aqua;
-}
-
-.hal-1-un1 {
-    height: 100vh;
+    width: 100%;          /* default: full */
+    height: 100%;
+    max-width: 567px;     /* batas maksimal */
+    margin: 0 auto;       /* biar selalu center */
+    background: url('assets/ft2.jpg');     /* contoh background */
+    background-repeat: no-repeat;
+    background-size: cover;
     display: flex;
-    flex-direction: column;
-    justify-content: flex-end;
-    text-align: center;
-    align-items: center;
-    padding: 20% 0;
-
+    overflow: hidden;
+    background-position: 40%;
+    min-height: 100vh;    /* setinggi layar */
+    box-shadow: 0 1px 10px 3px rgba(0,0,0,0.2); /* biar kayak frame hp */
 }
-
-.logo-hal1 {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.logo-hal1 h5 {
-    color: var(--w);
-    padding-bottom: 1rem;
-}
-
-.logo-hal1 h1 {
-    color: var(--maroon);
-    font-family: "Tangerine", cursive;
-    font-size: 5rem;
-    font-weight: bold;
-}
-
-.guest {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    margin-top: auto;
-    margin-bottom: 6rem;
-    color: var(--w);
-}
-
-.guest h2 {
-    padding-top: 1rem;
-    font-size: 2.3rem;
-}
-
-.btn {
-    font-size: 0.80rem;
-    padding: 0.35rem 1rem;
-    color: var(--w);
-    background: var(--maroon);
-    align-items: center;
-    border: none;
-    font-weight: bold;
-    cursor: pointer;
-    text-decoration: none;
-    border-radius: 1rem;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.534);
-    font-family: "Lexend Deca", sans-serif;
-}
-
-.btn-animasi {
-    transition: transform 0.2s ease, box-shadow 0.3s ease;
-    animation: pulse 1s infinite; /* animasi otomatis */
-}
-
-.btn-animasi:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 20px var(--maroon);
-    color: var(--maroon);
-    background: var(--w);
-}
-
-/* Animasi "denyut" */
-@keyframes pulse {
-    0%   { transform: scale(1);}
-    50%  { transform: scale(1.08);}
-    100% { transform: scale(1);}
-}
-
-.contnav {
-    height: 40px;
-    position: sticky;
-    top: 0;
-    display: flex;
-    align-items: center;
-    background-color: rgb(0,0,0,0.1);
-    -webkit-backdrop-filter: blur(3px);
-    backdrop-filter: blur(3px);
-}
-
-.logo-nav {
-    width: 100%;
-    margin-right: auto;
-    padding: 0 6%;
-    color: var(--w);
-    display: flex;
-    justify-content: flex-start;
-    text-align: center;
-    align-items: center;
-}
-
-.logo-nav h1 {
-    color: var(--maroon);
-    font-family: "Tangerine", cursive;
-    font-weight: bold;
-    text-align: center;
-}
-
-.logo-nav span {
-    margin-left: auto;
-    cursor: pointer;
-}
-
-.logo-nav span .bx-menu {
-    justify-content: center;
-    align-items: center;
-    font-size: 2rem;
-    color: #383838;
-}
-
-.logo-nav span i:active {
-    color: var(--maroon);
-}
-
-.sidebar {
+    /* overlay shadow atas dan bawah */
+.container::before {
+    content: "";
     position: absolute;
-    top: 0;          /* sejajar atas */
-    right: 0;        /* kalau muncul dari kanan */
-    max-width: 100%;
-    width: 250px;
+    top: 0;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background-color: rgb(0,0,0,0.1);
-    padding: 60px 20px 20px;     /* 60px biar gak nutupin nav */
-    transform: translateX(100%); /* sembunyi */
-    transition: 0.3s;
-    z-index: 10;                 /* biar di atas konten lain */
+
+    /* gradient dari hitam transparan ke terang */
+    background: linear-gradient(
+        to bottom,
+        rgb(230, 230, 230) 0%,     /* gelap di atas */
+        rgba(0,0,0,0) 40%,      /* hilang di tengah */
+        rgba(0,0,0,0) 60%,      /* tetap terang di tengah */
+        rgba(177, 0, 0, 0.623) 100%    /* gelap lagi di bawah */
+    );
+
+    pointer-events: none; /* biar gak ganggu klik */
+    z-index: 0;
 }
 
-.sidebar.active {
-    transform: translateX(0); /* tampil */
-}
-
-.cont-sidebar {
+.hal1 {
     display: flex;
     flex-direction: column;
-    margin: 0;
-    padding: 0;
+    justify-content: space-between;
+    align-items: center;
+    text-align: center;
+    margin: 0 auto;
+    padding: 10% 0;
+    /* text-shadow: var(--s); */
+    color: var(--w);
+    z-index: 10;
 }
 
-.cont-sidebar span {
-    position: relative;
-    top: -45px;
-    left: -9px;
+.hal1 .title {
+    margin-top: 30px;
 }
 
-.cont-sidebar span .bx-x {
+.hal1 .title h4 {
+    font-weight: 500;
+    color: var(--b);
+    text-shadow: none;
+    text-shadow: 0px 1px rgb(0, 0, 0, 0.2);
+}
+
+.hal1 .title h1 {
+    font-size: 8rem;
+    font-family: "Tangerine", cursive;
+    font-weight: 700;
+    color: var(--m);
+    text-shadow: 0px 8px rgb(0, 0, 0, 0.2);
+}
+
+.hal1 .nama-tamu {
+    padding: 2rem;
+}
+
+.hal1 .nama-tamu h3 {
+    font-size: 1rem;
+    margin-bottom: .76rem;
+}
+
+.hal1 .nama-tamu h2 {
+    margin-bottom: 5rem;
     font-size: 2rem;
 }
 
-.nav-link {
-    display: flex;
-    flex-direction: column;
-    position: relative;
-    top: -45px;
-    gap: 2rem;
-    width: 100%;
-    text-align: center;
-    list-style: none;
-    padding: 2rem 4rem;
-}
-
-.nav-link li a {
-    height: 100%;
-    width: 100%;
+.nama-tamu a {
+    padding: .55rem 1.5rem;
+    font-size: 1rem;
+    color: var(--m);
+    background: var(--w);
+    font-weight: 700;
+    border-radius: .84rem;
+    box-shadow: 0px 2px 3px rgb(161, 0, 0);
     text-decoration: none;
-    font-size: 20px;
-}
-
-.nav-link li a:hover {
-    background: #666;
-}
-
-.container-isi {
+    text-shadow: none;
     position: relative;
-    display: block;
     overflow: hidden;
 }
+/* 
+.nama-tamu a:hover {
+    background: var(--m);
+    color: var(--w);
+    transition: 0.2s ease-in;
+}
+ */
 
-.sec-1 {
-    height: 100vh;
+.nama-tamu a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.3);
+  transform: skewX(-20deg);
 }
 
-.sec-2 {
-    height: 100vh;
+.nama-tamu a:hover::after {
+  left: 100%;
+  transition: 0.6s;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.08); }
+  100% { transform: scale(1); }
+}
+
+.btn-pulse {
+  animation: pulse 1.5s infinite;
 }
