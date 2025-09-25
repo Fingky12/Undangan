@@ -1,39 +1,28 @@
-document.addEventListener("DOMContentLoaded", () => {
-  const bukaBtn = document.getElementById("buka-undangan");
-  const isiUndangan = document.getElementById("isi-undangan");
-  const menuBtn = document.querySelector(".bx-menu"); // tombol menu (☰)
-  const closeBtn = document.querySelector(".bx-x"); // tombol X
-  const sidebar = document.querySelector(".sidebar");
+const container = document.querySelector('.falling-flowers');
 
-  // Lock scroll saat pertama load
-  document.body.classList.add("lock-scroll");
+function createFlower() {
+  const flower = document.createElement('div');
+  flower.classList.add('flower');
+  flower.innerHTML = '❀'; // bisa diganti gambar bunga PNG/SVG
 
-  bukaBtn.addEventListener("click", () => {
-    // buka isi undangan
-    isiUndangan.classList.add("active");
+  // posisi random di sumbu X
+  flower.style.left = Math.random() * window.innerWidth + 'px';
 
-    // buka scroll
-    document.body.classList.remove("lock-scroll");
+  // ukuran random
+  const size = 15 + Math.random() * 25;
+  flower.style.fontSize = size + 'px';
 
-    // optional: auto scroll ke atas isi undangan
-    isiUndangan.scrollIntoView({ behavior: "smooth" });
-  });
-  
-  // Klik icon menu → buka sidebar
-  menuBtn.addEventListener("click", () => {
-    sidebar.classList.add("active");
-  });
+  // durasi animasi random
+  const duration = 5 + Math.random() * 5;
+  flower.style.animationDuration = duration + 's';
 
-  // Klik icon close → tutup sidebar
-  closeBtn.addEventListener("click", () => {
-    sidebar.classList.remove("active");
-  });
-});
+  container.appendChild(flower);
 
-window.addEventListener("beforeunload", () => {
-  window.scrollTo(0, 0);
-});
+  // hapus setelah selesai jatuh
+  setTimeout(() => {
+    flower.remove();
+  }, duration * 1000);
+}
 
-document.getElementById('buka-undangan').addEventListener('click', function() {
-  this.classList.remove('btn-animasi');
-});
+// bikin bunga terus muncul tiap 300ms
+setInterval(createFlower, 300);
