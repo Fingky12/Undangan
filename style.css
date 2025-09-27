@@ -21,9 +21,16 @@ Body {
     align-items: center;
     justify-content: center;
     margin: 0 auto;
+    overflow: hidden; /* kunci scroll saat awal */
+    height: 100%;
+    scroll-behavior: smooth; /* biar pas scroll otomatis smooth */
     font-family: "Poppins", sans-serif;
+    background: var(--m);
 }
 
+Body.unlocked {
+    overflow: auto;
+}
 /* gaya bunga kecil */
 .flower {
     position: absolute;
@@ -57,7 +64,7 @@ Body {
     overflow: hidden;
     min-height: 100vh;    /* setinggi layar */
     box-shadow: 0 1px 10px 3px rgba(0,0,0,0.2); /* biar kayak frame hp */
-    background-image: radial-gradient(circle, rgba(77, 76, 76, 0.726), rgb(255, 255, 255));
+    background-color: var(--m);
 }
 
 .hal1 {
@@ -88,8 +95,8 @@ Body {
     background: linear-gradient(
         to bottom,
         rgb(255, 255, 255) 0%,     /* gelap di atas */
-        rgba(255, 255, 255, 0.5) 40%,      /* hilang di tengah */
-        rgba(255, 255, 255, 0.4) 60%,      /* tetap terang di tengah */
+        rgba(255, 255, 255, 0) 40%,      /* hilang di tengah */
+        rgba(255, 255, 255, 0) 60%,      /* tetap terang di tengah */
         rgb(161, 0, 0) 90%    /* gelap lagi di bawah */
     );
 
@@ -114,7 +121,7 @@ Body {
     font-family: "Tangerine", cursive;
     color: var(--m);
     font-size: 4rem;
-    text-shadow: 0px 10px rgb(0, 0, 0, 0.2);
+    text-shadow: 0px 10px rgba(0, 0, 0, 0.30);
 }
 
 .hal1 .title h4 {
@@ -129,7 +136,7 @@ Body {
     font-family: "Tangerine", cursive;
     font-weight: 700;
     color: var(--m);
-    text-shadow: 0px 10px rgb(0, 0, 0, 0.2);
+    text-shadow: 0px 10px rgb(0, 0, 0, 0.30);
 }
 
 .hal1 .nama-tamu {
@@ -224,8 +231,8 @@ Body {
     background: linear-gradient(
         to bottom,
         rgb(230, 230, 230) 0%,     /* gelap di atas */
-        rgba(255, 255, 255, 0.5) 40%,      /* hilang di tengah */
-        rgba(255, 255, 255, 0.4) 60%,      /* tetap terang di tengah */
+        rgba(255, 255, 255, 0) 40%,      /* hilang di tengah */
+        rgba(255, 255, 255, 0) 60%,      /* tetap terang di tengah */
         rgb(161, 0, 0) 100%    /* gelap lagi di bawah */
     );
 
@@ -264,16 +271,46 @@ Body {
 }
 
 .foto-frame {
-    width: 300px;
-    height: 450px;
-    background: red;
+    position: relative;
+    top: 0;
+    width: 20vw;
+    height: 45vh;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+    background: var(--m);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-shadow: 0px 2px 5px 5px rgba(80, 80, 80, 0.315);
 }
 
 .foto-frame .foto {
-    width: 100%;
-    height: 100%;
+    position: absolute;
+    width: 99%;
+    height: 99%;
     background-position: center;
     background-size: cover;
     background-image: unset;
+    border-top-left-radius: 50%;
+    border-top-right-radius: 50%;
+}
+
+.card {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    width: 20vw;
+    height: 30vh;
+    background: rgba(255, 219, 219, 0.363);
+    border: 2px solid white;
     border-radius: 20px;
+    color: black;
+}
+
+.card h2 {
+    font-family: "Tangerine", cursive;
+    font-size: 3.5rem;
+    color: var(--m);
 }

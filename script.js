@@ -26,3 +26,20 @@ function createFlower() {
 
 // bikin bunga terus muncul tiap 300ms
 setInterval(createFlower, 300);
+
+window.addEventListener("beforeunload", () => {
+  window.scrollTo(0, 0);
+});
+
+  const btnBuka = document.getElementById("btn-buka");
+  const isiUndangan = document.getElementById("isi-undangan");
+
+  btnBuka.addEventListener("click", function(e) {
+    e.preventDefault();
+
+    // aktifkan scroll
+    document.body.classList.add("unlocked");
+
+    // scroll ke isi undangan
+    isiUndangan.scrollIntoView({ behavior: "smooth" });
+  });
