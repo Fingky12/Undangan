@@ -3,18 +3,14 @@ const container = document.querySelector('.falling-flowers');
 function createFlower() {
   const flower = document.createElement('div');
   flower.classList.add('flower');
-  flower.style.backgroundImage = "url('assets/flower1.png')";  // bisa diganti gambar bunga PNG/SVG
-  flower.style.backgroundSize = "cover";
-  flower.style.backgroundRepeat = "no-repeat";
-  flower.style.backgroundSize = "20px";
+  flower.innerHTML = '❀';
 
   // posisi random di sumbu X
   flower.style.left = Math.random() * window.innerWidth + 'px';
 
   // ukuran random
-  const size = 20 + Math.random() * 40;
-  flower.style.width = size + 'px';
-  flower.style.height = size + 'px';
+  const size = 15 + Math.random() * 20;
+  flower.style.fontSize = size + 'px';
 
   // durasi animasi random
   const duration = 5 + Math.random() * 5;
@@ -47,3 +43,39 @@ window.addEventListener("beforeunload", () => {
     // scroll ke isi undangan
     isiUndangan.scrollIntoView({ behavior: "smooth" });
   });
+
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+  const appearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, appearOptions);
+
+  faders.forEach(fader => appearOnScroll.observe(fader));
+
+  const zoomElements = document.querySelectorAll('.zoom-fade');
+
+  const zoomAppearOptions = {
+        threshold: 0.1,
+        rootMargin: "0px 0px -50px 0px"
+    };
+
+  const zoomAppearOnScroll = new IntersectionObserver((entries, observer) => {
+        entries.forEach(entry => {
+            if(entry.isIntersecting){
+                entry.target.classList.add('show');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, zoomAppearOptions);
+
+  zoomElements.forEach(el => zoomAppearOnScroll.observe(el));
