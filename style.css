@@ -351,7 +351,6 @@ body.unlocked {
     z-index: 2; /* di atas gradient */
 }
 
-
 /* gaya bunga kecil */
 .flower {
     position: absolute;
@@ -374,16 +373,15 @@ body.unlocked {
     }
 }
 
-
 .foto-frame {
     position: relative;
     top: 0;
-    width: 15vw;
-    height: 65vh;
+    width: 60%;
+    height: 80%;
     border-top-left-radius: 50%;
     border-top-right-radius: 50%;
-    background: var(--m);
     display: flex;
+    border: 4px solid;
     flex-direction: column;
     justify-content: center;
     align-items: center;
@@ -393,8 +391,9 @@ body.unlocked {
 
 .foto-frame .foto {
     position: absolute;
-    width: 99%;
-    height: 99%;
+    width: 80%;
+    height: 80%;
+    border: 4px solid;
     background-position: center;
     background-size: cover;
     background-image: unset;
@@ -407,21 +406,28 @@ body.unlocked {
     margin-top: 2rem;
     margin-bottom: auto;
     z-index: 3;
+    color: var(--b);
 }
 
 .hal2 .title2 h1 {
     font-size: 1rem;
     font-weight: 700;
-    color: var(--m);
-    text-shadow: 0px 6px rgb(0, 0, 0, 0.2);
+    color: var(--b);
+    text-shadow: 0px 4px rgb(0, 0, 0, 0.2);
 }
 
 .hal2 .title2 span h2 {
-    font-size: 5rem;
+    font-size: 6rem;
     font-family: "Tangerine", cursive;
     text-shadow: 0px 6px rgb(0, 0, 0, 0.2);
     font-weight: 700;
     color: var(--m);
+}
+
+.hal2 .title2 p {
+    font-size: 2rem;
+    font-family: "DM Serif Text", serif;
+    text-shadow: 0px 2px rgb(0, 0, 0, 0.2);
 }
 
 .hal3 {
@@ -434,7 +440,7 @@ body.unlocked {
     width: 100%;
     height: 70vh;
     margin: 0 auto;
-    color: var(--w);
+    color: var(--b);
     padding: 15% 10%;
     background: url('assets/bg1.jpg') no-repeat center/cover;     /* contoh background */
     background-position: 40%;
@@ -472,4 +478,8 @@ body.unlocked {
     border-radius: 20px;        /* biar melengkung */
     pointer-events: none;
     z-index: 2; /* di atas gradient */
+}
+
+.hal3 p {
+    z-index: 3;
 }
